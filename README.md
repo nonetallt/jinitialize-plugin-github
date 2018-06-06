@@ -8,4 +8,6 @@ Github api manipulation for [jinitialize](https://github.com/nonetallt/jinitiali
 github:authenticate [username] [password]
 
 github:create-repository [name] [--description] [--private]
+
+github:create-webhook [repository] [name] [url] [--secret]
 ```

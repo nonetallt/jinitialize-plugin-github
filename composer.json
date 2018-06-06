@@ -19,7 +19,7 @@
         "phpunit\/phpunit": "^6",
         "consolidation\/robo": "~1",
         "henrikbjorn\/lurker": "^1.2",
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas\/phpdotenv": "^2.4"
     },
     "license": "MIT",
     "authors": [
@@ -45,7 +45,8 @@
             "name": "github",
             "commands": [
                 "Nonetallt\\Jinitialize\\Plugin\\Github\\Commands\\Authenticate",
-                "Nonetallt\\Jinitialize\\Plugin\\Github\\Commands\\CreateRepository"
+                "Nonetallt\\Jinitialize\\Plugin\\Github\\Commands\\CreateRepository",
+                "Nonetallt\\Jinitialize\\Plugin\\Github\\Commands\\CreateWebhook"
             ],
             "settings": []
         }

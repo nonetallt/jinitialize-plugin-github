@@ -16,6 +16,7 @@ trait TestsGithub
         $this->username = getenv('GITHUB_USERNAME');
         $this->password = getenv('GITHUB_PASSWORD');
         $this->repository = getenv('GITHUB_TEST_REPOSITORY');
+        $this->webhookUrl = getenv('TEST_WEBHOOK_PAYLOAD_URL');
     }
 
     private function removeTestRepository()
