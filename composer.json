@@ -1,0 +1,53 @@
+{
+    "name": "nonetallt\/jinitialize-plugin-github",
+    "description": "Github api manipulation for jinitialize",
+    "type": "project",
+    "keywords": [
+        "jinitialize",
+        "github",
+        "api",
+        "automation"
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "nonetallt\/jinitialize-core": "dev-master",
+        "symfony\/console": "^3.4",
+        "php-http\/guzzle6-adapter": "^1.1",
+        "knplabs\/github-api": "^2.8"
+    },
+    "require-dev": {
+        "phpunit\/phpunit": "^6",
+        "consolidation\/robo": "~1",
+        "henrikbjorn\/lurker": "^1.2",
+        "vlucas/phpdotenv": "^2.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jyri Mikkola",
+            "email": "jyri.mikkola@pp.inet.fi"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Nonetallt\\Jinitialize\\Plugin\\Github\\": "src\/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests\/"
+        }
+    },
+    "extra": {
+        "jinitialize-plugin": {
+            "name": "github",
+            "commands": [
+                "Nonetallt\\Jinitialize\\Plugin\\Github\\Commands\\Authenticate",
+                "Nonetallt\\Jinitialize\\Plugin\\Github\\Commands\\CreateRepository"
+            ],
+            "settings": []
+        }
+    }
+}
