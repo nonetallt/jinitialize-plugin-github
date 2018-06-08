@@ -36,7 +36,7 @@ class CreateRepository extends JinitializeCommand
         $this->name = $input->getArgument('name');
         $description = $input->getOption('description') ?? '';
         $homepage = '';
-        $public = ! $this->wasOptionPassed($input, 'private');
+        /* $public = ! $this->wasOptionPassed($input, 'private'); */
 
         try {
             /* $name, */
@@ -50,7 +50,7 @@ class CreateRepository extends JinitializeCommand
             /* $teamId       = null, */
             /* $autoInit     = false */
 
-            $result = $this->client->api('repo')->create($this->name, $description, $homepage, $public);
+            $result = $this->client->api('repo')->create($this->name, $description, $homepage);
             $this->export('git_url', $result['git_url']);
             $this->export('ssh_url', $result['ssh_url']);
             $this->export('clone_url', $result['clone_url']);
