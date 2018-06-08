@@ -50,7 +50,11 @@ class CreateRepository extends JinitializeCommand
             /* $teamId       = null, */
             /* $autoInit     = false */
 
-            $this->client->api('repo')->create($this->name, $description, $homepage, $public);
+            $result = $this->client->api('repo')->create($this->name, $description, $homepage, $public);
+            $this->export('git_url', $result['git_url']);
+            $this->export('ssh_url', $result['ssh_url']);
+            $this->export('clone_url', $result['clone_url']);
+            $this->export('svn_url', $result['svn_url']);
         }
         catch(ValidationFailedException $e) {
             $this->abort($e->getMessage());

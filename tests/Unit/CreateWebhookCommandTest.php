@@ -11,8 +11,6 @@ class CreateWebhookCommandTest extends TestCase
 {
     use TestsGithub;
 
-    private $webhookName;
-
     /**
      * @group api
      */
@@ -21,9 +19,9 @@ class CreateWebhookCommandTest extends TestCase
 
         $this->runCommand("github:authenticate $this->username $this->password");
         $this->runCommand("github:create-repository $this->repository");
-        $this->runCommand("github:create-webhook $this->repository $this->webhookName $this->webhookUrl");
+        $this->runCommand("github:create-webhook $this->repository $this->webhookUrl");
 
-        $this->assertTrue($this->webhookExists($this->webhookName));
+        $this->assertTrue($this->webhookExists('web'));
     }
 
     private function webhookExists(string $name)
@@ -49,7 +47,5 @@ class CreateWebhookCommandTest extends TestCase
         } 
         catch(RuntimeException $e) {
         }
-
-        $this->webhookName = 'web';
     }
 }

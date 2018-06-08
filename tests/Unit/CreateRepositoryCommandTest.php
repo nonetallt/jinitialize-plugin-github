@@ -49,6 +49,23 @@ class CreateRepositoryCommandTest extends TestCase
         $result = $client->api('repo')->show($this->username, $this->repository);
     }
 
+    /**
+     * @group api
+     */
+    public function testRepositoryUrlIsExported()
+    {
+        $this->runCommand("github:authenticate $this->username $this->password");
+        $this->runCommand("github:create-repository $this->repository");
+
+        $git = "git://github.com/$this->username/$this->repository";
+        $url = "https://github.com/$this->username/$this->repository";
+
+        $this->assertContainerContains([
+            'git_url' => $git.'.git',
+            'clone_url' => $url.'.git'
+        ]);
+    }
+
     public function setUp()
     {
         parent::setUp();
