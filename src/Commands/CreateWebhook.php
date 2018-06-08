@@ -25,6 +25,9 @@ class CreateWebhook extends JinitializeCommand
         $msg = 'Name of the repository where webhook will be created.';
         $this->addArgument('repository', InputArgument::REQUIRED, $msg);
 
+        $msg = 'Use "web" for a webhook or use the name of a valid service. You can use /hooks for the list of valid service names. Note: GitHub Services will no longer be supported as of October 1, 2018. Please see the blog post for details.';
+        $this->addOption('name', null, InputOption::VALUE_OPTIONAL, $msg, 'web');
+
         $msg = 'The URL to which the payloads will be delivered.';
         $this->addArgument('url', InputArgument::REQUIRED, $msg);
 
@@ -40,7 +43,7 @@ class CreateWebhook extends JinitializeCommand
 
         /* https://developer.github.com/v3/repos/hooks/#create-a-hook */
         $params = [
-            'name'   => 'web',
+            'name'   => $input->getOption('name'),
             'config' => [
                 'url'          => $input->getArgument('url'),
                 'content_type' => 'json',
